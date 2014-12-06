@@ -23,8 +23,8 @@ Create Table EventParticipants (
 	UserID integer unsigned not null,
 	Status tinyint unsigned not null, -- 1 - participated, 0 - accepted the invitation but not visited
 	primary key (EventID, UserID),
-	FOREIGN KEY (EventID) REFERENCES Events(EventID),
-	FOREIGN KEY (UserID) REFERENCES Users(UserID)
+	foreign key (EventID) references Events(EventID),
+	foreign key (UserID) references Users(UserID)
 );
 
 Create Table Challenges  (
@@ -39,8 +39,8 @@ Create Table UserChallenges (
 	ChallengeID integer unsigned not null,
 	CompletedDate timestamp,
 	primary key (UserID,ChallengeID),
-	FOREIGN KEY (UserID) REFERENCES Users(UserID),
-	FOREIGN KEY (ChallengeID) REFERENCES Challenges(ChallengeID)
+	foreign key (UserID) references Users(UserID),
+	foreign key (ChallengeID) references Challenges(ChallengeID)
 );
 
 Create Table Teams  (
@@ -53,8 +53,8 @@ CREATE TABLE TeamMembers (
 	TeamID integer unsigned not null,
 	UserID integer unsigned not null,
 	primary key (TeamID, UserID),
-	FOREIGN KEY (TeamID) REFERENCES Teams(TeamID),
-	FOREIGN KEY (UserID) REFERENCES Users(UserID)
+	foreign key (TeamID) references Teams(TeamID),
+	foreign key (UserID) references Users(UserID)
 );
 
 CREATE TABLE Badges (
