@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS Earned, Badges, TeamMembers, Teams, UserChallenges, Challenges, EventParticipants, Events, Users;
+
 Create Table Users  (
 	UserID integer unsigned primary key not null AUTO_INCREMENT,
 	LastName varchar(70) not null,
@@ -45,7 +47,7 @@ Create Table UserChallenges (
 
 Create Table Teams  (
 	TeamID integer unsigned primary key not null auto_increment,
-	TeamName varchar(50),
+	TeamName varchar(50) not null,
 	TeamDescription text
 );
 
@@ -61,7 +63,7 @@ CREATE TABLE Badges (
 	BadgeID integer unsigned primary key not null auto_increment,
 	Name varchar(30) not null,
 	Description text not null,
-	Identifier char(10) not null
+	Identifier char(10) not null  -- Meta identifier for naming of icons, blocks, etc
 );
 
 CREATE TABLE Earned (
