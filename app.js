@@ -5,7 +5,6 @@ var express         = require('express'),
     cookieParser    = require('cookie-parser'),
     bodyParser      = require('body-parser'),
     methodOverride  = require('method-override'),
-    mysql           = require('mysql'),
     session         = require('express-session'),
     passport        = require('passport'),
     FacebookStrategy = require('passport-facebook').Strategy;
@@ -22,13 +21,8 @@ var config          = require('./configuration/config.' + app.get('env'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-//Define MySQL parameter in Config.js file.
-var connection = mysql.createConnection({
-  host     : config.host,
-  user     : config.username,
-  password : config.password,
-  database : config.database
-});
+var connection = require('./helpers/mysql.js')
+
 //Connect to Database only if Config.js parameter is set.
 if(config.use_database==='true')
 {
