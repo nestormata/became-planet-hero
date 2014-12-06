@@ -1,72 +1,67 @@
 Create Table Users  (
-	UserID integer UNSIGNED NOT NULL AUTO_INCREMENT,
-	LastName varchar(70) NOT NULL,
-	FirstName varchar(50) NOT NULL,
-	Email varchar(100) NOT NULL,
-	Country char(2) NOT NULL,
-	City varchar(30) NOT NULL,
+	UserID integer unsigned primary key not null AUTO_INCREMENT,
+	LastName varchar(70) not null,
+	FirstName varchar(50) not null,
+	Email varchar(100) not null,
+	Country char(2) not null,
+	City varchar(30) not null,
 	Registered timestamp default now(),
-	PRIMARY KEY (UserID),
 	UNIQUE KEY (Email)
 );
 
 Create Table Events (
-	EventID integer unsigned NOT NULL auto_increment,
+	EventID integer unsigned primary key not null auto_increment,
 	Type tinyint unsigned not null,
 	Name varchar(50) not null,
-	OcurrDate DATE not null,
+	OcurrDate DATETIME not null,
 	Description text not null,
-	PRIMARY KEY (EventID),
 	INDEX (Type)
 );
 
 Create Table EventParticipants (
-	EventID integer unsigned NOT NULL,
-	UserID integer unsigned NOT NULL,
-	Status tinyint unsigned NOT NULL,
-	PRIMARY KEY (EventID, UserID),
+	EventID integer unsigned not null,
+	UserID integer unsigned not null,
+	Status tinyint unsigned not null, -- 1 - participated, 0 - accepted the invitation but not visited
+	primary key (EventID, UserID),
 	FOREIGN KEY (EventID) REFERENCES Events(EventID),
 	FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 
 Create Table Challenges  (
-	ChallengeID integer unsigned NOT NULL auto_increment,
+	ChallengeID integer unsigned primary key not null auto_increment,
 	Type tinyint unsigned not null,
 	Name varchar(70),
-	Description text,
-	PRIMARY KEY (ChallengeID)
+	Description text
 );
 
 Create Table UserChallenges (
-	UserID integer unsigned NOT NULL,
-	ChallengeID integer unsigned NOT NULL,
+	UserID integer unsigned not null,
+	ChallengeID integer unsigned not null,
 	CompletedDate timestamp,
-	PRIMARY KEY (UserID,ChallengeID),
+	primary key (UserID,ChallengeID),
 	FOREIGN KEY (UserID) REFERENCES Users(UserID),
 	FOREIGN KEY (ChallengeID) REFERENCES Challenges(ChallengeID)
 );
 
 Create Table Teams  (
-	TeamID integer unsigned NOT NULL auto_increment,
+	TeamID integer unsigned primary key not null auto_increment,
 	TeamName varchar(50),
-	TeamDescription text,
-	PRIMARY KEY (TeamID)
+	TeamDescription text
 );
 
 CREATE TABLE TeamMembers (
 	TeamID integer unsigned not null,
 	UserID integer unsigned not null,
-	PRIMARY KEY (TeamID, UserID),
+	primary key (TeamID, UserID),
 	FOREIGN KEY (TeamID) REFERENCES Teams(TeamID),
 	FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 
 CREATE TABLE Badges (
-	BadgeID integer unsigned not null auto_increment,
+	BadgeID integer unsigned primary key not null auto_increment,
 	Name varchar(30) not null,
 	Description text not null,
-	identifier char(10) not null,
-	PRIMARY KEY (BadgeID)
+	Identifier char(10) not null
 );
 
 CREATE TABLE Earned (
