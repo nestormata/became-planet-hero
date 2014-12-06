@@ -13,6 +13,7 @@ var util = require('util');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var teams = require('./routes/teams');
 
 var app = express();
 var config          = require('./configuration/config.' + app.get('env'));
@@ -73,7 +74,7 @@ passport.use(new FacebookStrategy({
 				function(err, result) {
 					console.log(err);
 					console.log(result);
-			});
+			  });
 			console.log(query.sql);
       return done(null, profile);
     });
@@ -94,6 +95,7 @@ app.use(express.static(__dirname + '/public'));
 app.use('/', routes);
 app.use('/login', routes);
 app.use('/users', users);
+app.use('/teams', teams);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
