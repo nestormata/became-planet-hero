@@ -40,8 +40,8 @@ passport.serializeUser(function(profile, done) {
 		'SELECT * FROM Users WHERE FBID = ?',
 		profile.id,
 		function(err, result) {
-			if (result) {
-				var user =  result;
+			if (result && result.length > 0) {
+				var user =  result[0];
   			done(null, user);
 			} else {
 				// Error retrieving the user from DB
