@@ -9,12 +9,13 @@ var express         = require('express'),
     session         = require('express-session'),
     passport        = require('passport'),
     FacebookStrategy = require('passport-facebook').Strategy,
-    config          = require('./configuration/config');
+    engine          = require('express-dot-engine');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+var config          = require('./configuration/config.' + app.get('env'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
