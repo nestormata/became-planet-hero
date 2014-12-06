@@ -11,6 +11,8 @@ var express         = require('express'),
     FacebookStrategy = require('passport-facebook').Strategy,
     engine          = require('express-dot-engine');
 
+var util = require('util');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -35,8 +37,22 @@ if(config.use_database==='true')
     connection.connect();
 }
 // Passport session setup.
-passport.serializeUser(function(user, done) {
-  done(null, user);
+passport.serializeUser(function(profile, done) {
+	var query = connection.query(
+		'SELECT * FROM Users WHERE FBID = ?',
+		profile.id,
+		function(err, result) {
+			if (result) {
+				var user =  result;
+  			done(null, user);
+			} else {
+				// Error retrieving the user from DB
+				console.log('User was not found on the DB');
+  			done(null, false);
+			}
+		}
+	);
+	console.log(query.sql);
 });
 passport.deserializeUser(function(obj, done) {
   done(null, obj);
@@ -50,7 +66,7 @@ passport.use(new FacebookStrategy({
   },
   function(accessToken, refreshToken, profile, done) {
     process.nextTick(function () {
-      //Check whether the User exists or not using profile.id
+			//console.log(util.inspect(profile, {showHidden: false, depth: null, colors: true}));
       //Further DB code.
 			var query = connection.query(
 				'REPLACE INTO Users (LastName, FirstName, Email, Country, City, FBID) VALUES (?, ?, ?, ?, ?, ?)', 
