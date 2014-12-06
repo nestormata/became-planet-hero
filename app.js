@@ -1,9 +1,15 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var express         = require('express'),
+    path            = require('path'),
+    favicon         = require('serve-favicon'),
+    logger          = require('morgan'),
+    cookieParser    = require('cookie-parser'),
+    bodyParser      = require('body-parser'),
+    methodOverride  = require('method-override'),
+    mysql           = require('mysql'),
+    session         = require('express-session'),
+    passport        = require('passport'),
+    FacebookStrategy = require('passport-facebook').Strategy,
+    config          = require('./configuration/config');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -12,7 +18,41 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'dot');
+
+//Define MySQL parameter in Config.js file.
+var connection = mysql.createConnection({
+  host     : config.host,
+  user     : config.username,
+  password : config.password,
+  database : config.database
+});
+//Connect to Database only if Config.js parameter is set.
+if(config.use_database==='true')
+{
+    connection.connect();
+}
+// Passport session setup.
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
+// Use the FacebookStrategy within Passport.
+passport.use(new FacebookStrategy({
+    clientID: config.facebook_api_key,
+    clientSecret:config.facebook_api_secret ,
+    callbackURL: config.callback_url
+  },
+  function(accessToken, refreshToken, profile, done) {
+    process.nextTick(function () {
+      //Check whether the User exists or not using profile.id
+      //Further DB code.
+      return done(null, profile);
+    });
+  }
+));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -23,6 +63,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/login', routes);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
