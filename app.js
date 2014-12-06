@@ -18,7 +18,8 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'dot');
+//app.set('view engine', 'dot');
+app.set('view engine', 'jade');
 
 //Define MySQL parameter in Config.js file.
 var connection = mysql.createConnection({
@@ -44,11 +45,27 @@ passport.use(new FacebookStrategy({
     clientID: config.facebook_api_key,
     clientSecret:config.facebook_api_secret ,
     callbackURL: config.callback_url
+		//profileFields: ['id', 'displayName', 'link', 'photos', 'emails']
   },
   function(accessToken, refreshToken, profile, done) {
     process.nextTick(function () {
       //Check whether the User exists or not using profile.id
       //Further DB code.
+			var query = connection.query(
+				'REPLACE INTO Users (LastName, FirstName, Email, Country, City, FBID) VALUES (?, ?, ?, ?, ?, ?)', 
+				[
+					profile.name.familyName,
+					profile.name.givenName,
+					profile.emails[0].value,
+					'--',
+					'--',
+					profile.id
+				], 
+				function(err, result) {
+					console.log(err);
+					console.log(result);
+			});
+			console.log(query.sql);
       return done(null, profile);
     });
   }
@@ -57,10 +74,13 @@ passport.use(new FacebookStrategy({
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({ secret: 'hackhathon', key: 'sid', resave: false, saveUninitialized: false}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.static(__dirname + '/public'));
 
 app.use('/', routes);
 app.use('/login', routes);
