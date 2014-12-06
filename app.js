@@ -8,8 +8,7 @@ var express         = require('express'),
     mysql           = require('mysql'),
     session         = require('express-session'),
     passport        = require('passport'),
-    FacebookStrategy = require('passport-facebook').Strategy,
-    engine          = require('express-dot-engine');
+    FacebookStrategy = require('passport-facebook').Strategy;
 
 var util = require('util');
 
@@ -21,8 +20,7 @@ var config          = require('./configuration/config.' + app.get('env'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-//app.set('view engine', 'dot');
-app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
 
 //Define MySQL parameter in Config.js file.
 var connection = mysql.createConnection({
