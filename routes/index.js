@@ -6,7 +6,11 @@ var util = require('util');
 /* GET home page. */
 router.get('/', function(req, res) {
 	console.log(util.inspect(req.user, {showHidden: false, depth: null, colors: true}));
-  res.render('index', { title: 'Became a Planet Hero', user: req.user });
+  res.render('index', { 
+		title: 'Became a Planet Hero', 
+		subtitle: 'Make a little difference and save the world',
+		user: req.user 
+		});
 });
 
 router.get('/account', ensureAuthenticated, function(req, res){
