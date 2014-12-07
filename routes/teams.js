@@ -35,6 +35,19 @@ router.post('/create', function(req, res) {
         res.send('OK');
         console.log(result);
   });
+  console.log(query.sql);
+});
+
+// Add user to team
+router.post('/add', function(req, res) {
+  console.log(req.body);
+  var query = connection.query('INSERT INTO TeamMembers(TeamID, UserID) VALUES (?,?)', [req.param('teamid'), req.param('userid')],
+    function(err, result) {
+        if (err) {throw err;}
+        res.send('OK');
+        console.log(result);
+  });
+  console.log(query.sql);
 });
 
 // Delete team
@@ -46,6 +59,7 @@ router.delete('/', function(req, res) {
         res.send('OK');
         console.log(result);
   });
+  console.log(query.sql);
 });
 
 
