@@ -45,7 +45,6 @@ router.get('/:id', function(req, res) {
 				}
         res.render('teamids', { user:req.user, team: rows[0]});
   });
-
   console.log("Requested teamid - " + req.params.name);
 });
 
@@ -54,7 +53,7 @@ router.post('/create', function(req, res) {
   console.log(req.body);
   var query = connection.query('INSERT INTO Teams(TeamName, TeamDescription, OwnerID) VALUES (?,?,?)', [req.param('team_name'), req.param('team_description'), req.param('team_owner')],
     function(err, result) {
-        if (err) {res.send('Please provide name and desc headers'); throw err;}
+        if (err) {res.send('Please provide proper details'); throw err;}
         res.send('OK');
         console.log(result);
   });

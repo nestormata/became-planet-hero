@@ -7,22 +7,22 @@ var express         = require('express'),
     methodOverride  = require('method-override'),
     session         = require('express-session'),
     passport        = require('passport'),
-    FacebookStrategy = require('passport-facebook').Strategy;
+    FBStrategy      = require('passport-facebook').Strategy,
+    util            = require('util'),
 
-var util = require('util');
-
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var teams = require('./routes/teams');
-
-var app = express();
-var config          = require('./configuration/config.' + app.get('env'));
+    routes          = require('./routes/index'),
+    users           = require('./routes/users'),
+    teams           = require('./routes/teams'),
+    events          = require('./routes/events'),
+    challenges      = require('./routes/challenges'),
+    badges          = require('./routes/badges'),
+    app             = express(),
+    config          = require('./configuration/config.' + app.get('env')),
+    connection      = require('./helpers/mysql.js');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
-var connection = require('./helpers/mysql.js');
 
 //Connect to Database only if Config.js parameter is set.
 if(config.use_database==='true')
@@ -50,8 +50,8 @@ passport.serializeUser(function(profile, done) {
 passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
-// Use the FacebookStrategy within Passport.
-passport.use(new FacebookStrategy({
+// Use the FBStrategy within Passport.
+passport.use(new FBStrategy({
     clientID: config.facebook_api_key,
     clientSecret:config.facebook_api_secret ,
     callbackURL: config.callback_url
@@ -96,6 +96,9 @@ app.use('/', routes);
 app.use('/login', routes);
 app.use('/users', users);
 app.use('/teams', teams);
+app.use('/events', events);
+app.use('/challenges', challenges);
+app.use('/badges', badges);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

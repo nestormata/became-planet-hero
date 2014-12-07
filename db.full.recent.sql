@@ -2,13 +2,16 @@ DROP TABLE IF EXISTS UserBans, Earned, Badges, TeamMembers, Teams, UserChallenge
 
 Create Table Users (
 	UserID integer unsigned primary key not null AUTO_INCREMENT,
+	FBID BIGINT UNSIGNED not null,
+	Status tinyint not null,  -- 0 - account active, 1 - account banned
 	LastName varchar(70) not null,
 	FirstName varchar(50) not null,
 	Email varchar(100) not null,
 	Country char(2) not null,
 	City varchar(30) not null,
 	Registered timestamp default now(),
-	UNIQUE KEY (Email)
+	UNIQUE KEY (Email),
+	UNIQUE INDEX (FBID)
 );
 
 Create Table Events (
@@ -48,7 +51,9 @@ Create Table UserChallenges (
 Create Table Teams (
 	TeamID integer unsigned primary key not null auto_increment,
 	TeamName varchar(50) not null,
-	TeamDescription text
+	TeamDescription text,
+	OwnerID integer unsigned not null,
+	foreign key (OwnerID) references Users(UserID)
 );
 
 CREATE TABLE TeamMembers (
@@ -67,8 +72,19 @@ CREATE TABLE Badges (
 );
 
 CREATE TABLE Earned (
-	UserID integer unsigned not null,
+	UserID integer unsigned not null ,
 	BadgeID integer unsigned null,
 	Points integer unsigned,
+	foreign key (UserID) references Users(UserID),
+	--foreign key (BadgeID) references Badges(BadgeID), -- TBD 
 	INDEX (UserID)
+);
+
+CREATE TABLE UserBans (
+	BanID integer unsigned primary key not null auto_increment,
+	UserID integer unsigned not null,
+	InitializerID integer unsigned not null,
+	OcurrDate timestamp default now(),
+	foreign key (UserID) references Users(UserID),
+	foreign key (InitializerID) references Users(UserID)
 );

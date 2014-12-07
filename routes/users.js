@@ -2,7 +2,7 @@ var express = require('express'),
     connection = require('../helpers/mysql.js'),
     router = express.Router();
 
-// Get full list of teams
+// Get full list of users
 router.get('/', function(req, res) {
   var query = connection.query('SELECT * from Users',
     function(err, rows, fields) {
@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
   console.log(query.sql);
 });
 
-// Get information about team by id
+// Get information about user by id
 router.get('/:id', function(req, res) {
   var query = connection.query('SELECT * from Users WHERE UserID=?', [req.params.id],
     function(err, rows, fields) {
@@ -21,7 +21,6 @@ router.get('/:id', function(req, res) {
         if (!rows.length) {return res.status(404).end();}
         res.render('userids', { rows: rows});
   });
-
   console.log("Requested userid - " + req.params.name);
 });
 

@@ -1,0 +1,20 @@
+<div>
+	<table border="1">
+		<tr>
+		<th>EventID</th>
+		<th>Type</th>
+		<th>Name</th>
+		<th>OcurrDate</th>
+		<th>Description</th>
+		</tr>
+		<% for(var i=0; i<rows.length; i++) {%>
+			<tr>
+			<td><%= rows[i].EventID %></td>
+			<td><%= rows[i].Type %></td>
+			<td><%= rows[i].Name %></td>
+			<td><%= rows[i].OcurrDate %></td>
+			<td><%= rows[i].Description %></td>
+			</tr>
+		<% } %>
+	</table>
+</div>
