@@ -2,7 +2,6 @@ var express = require('express'),
     connection = require('../helpers/mysql.js'),
     router = express.Router();
 
-
 // Get full list of teams
 router.get('/', function(req, res) {
   var query = connection.query('SELECT * from Teams',
@@ -16,7 +15,7 @@ router.get('/', function(req, res) {
 
 // Get information about team by id
 router.get('/:id', function(req, res) {
-  var query = connection.query('SELECT * from Teams WHERE  TeamID=?', [req.params.id],
+  var query = connection.query('SELECT * from Teams WHERE TeamID=?', [req.params.id],
     function(err, rows, fields) {
         if (err) {throw err;}
         if (!rows.length) {return res.send(404);}
@@ -61,7 +60,6 @@ router.delete('/', function(req, res) {
   });
   console.log(query.sql);
 });
-
 
 // Update team (?) TBD
 router.post('/update', function(req, res) {

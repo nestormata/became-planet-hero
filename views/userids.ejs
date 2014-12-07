@@ -1,0 +1,26 @@
+<div>
+	<table border="1">
+		<tr>
+			<th>UserID</th>
+			<th>LastName</th>
+			<th>FirstName</th>
+			<th>Email</th>
+			<th>Country</th>
+			<th>City</th>
+			<th>Registered</th>
+			<th>FBID</th>
+		</tr>
+		<% for(var i=0; i<rows.length; i++) {%>
+			<tr>
+				<td><%= rows[i].UserID %></td>
+				<td><%= rows[i].LastName %></td>
+				<td><%= rows[i].FirstName %></td>
+				<td><%= rows[i].Email %></td>
+				<td><%= rows[i].Country %></td>
+				<td><%= rows[i].City %></td>
+				<td><%= rows[i].Registered %></td>
+				<td><%= rows[i].FBID %></td>
+			</tr>
+		<% } %>
+	</table>
+</div>

@@ -1,7 +1,16 @@
 <div>
-	<ul>
+	<table border="1">
+		<tr>
+		<th>TeamID</th>
+		<th>TeamName</th>
+		<th>TeamDescription</th>
+		</tr>
 		<% for(var i=0; i<rows.length; i++) {%>
-		   <li><%= rows[i].TeamID %> - <%= rows[i].TeamName %> - <%= rows[i].TeamDescription %></li>
+			<tr>
+			<td><%= rows[i].TeamID %></td>
+			<tr><%= rows[i].TeamName %></tr>
+			<tr><%= rows[i].TeamDescription %></tr>
+			</tr>
 		<% } %>
-	</ul>
+	</table>
 </div>
