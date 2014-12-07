@@ -72,9 +72,11 @@ CREATE TABLE Badges (
 );
 
 CREATE TABLE Earned (
-	UserID integer unsigned not null,
+	UserID integer unsigned not null ,
 	BadgeID integer unsigned null,
 	Points integer unsigned,
+	foreign key (UserID) references Users(UserID),
+	--foreign key (BadgeID) references Badges(BadgeID), -- TBD 
 	INDEX (UserID)
 );
 

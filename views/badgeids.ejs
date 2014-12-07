@@ -1,17 +1,17 @@
 <div>
 	<table border="1">
 		<tr>
-		<th>ChallengeID</th>
-		<th>Type</th>
+		<th>BadgeID</th>
 		<th>Name</th>
 		<th>Description</th>
+		<th>Identifier</th>
 		</tr>
 		<% for(var i=0; i<rows.length; i++) {%>
 			<tr>
-			<td><%= rows[i].ChallengeID %></td>
-			<td><%= rows[i].Type %></td>
+			<td><%= rows[i].BadgeID %></td>
 			<td><%= rows[i].Name %></td>
 			<td><%= rows[i].Description %></td>
+			<td><%= rows[i].Identifier %></td>
 			</tr>
 		<% } %>
 	</table>
