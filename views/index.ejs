@@ -1,6 +1,5 @@
 <% include head %>
 <% include top %>
-<% include sidebar %>
     <div id="main-top">
     <!--
 	      <h1><%= title %></h1>
@@ -9,7 +8,7 @@
         <% } %>
      -->
     </div>
-	<% if (user) { %>
+	<% if (typeof user != 'undefined') { %>
     <div>Hi, <%= user.FirstName %>!</div>
   <% } else { %>
     <div>Welcome, please <a href="/auth/facebook/">login</a></div> 

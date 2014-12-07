@@ -2,13 +2,34 @@ var express = require('express'),
     connection = require('../helpers/mysql.js'),
     router = express.Router();
 
+var entities = {
+	title: 'Teams',
+	home: '/teams/'
+};
+
 // Get full list of teams
 router.get('/', function(req, res) {
-  var query = connection.query('SELECT * from Teams',
+	var action = {
+		name: 'Add',
+		title: 'Add a new team',
+		method: 'POST',
+		path: '/teams/create/',
+		identifier: 'create'
+	};
+	// TODO: Do paging here
+  var query = connection.query('SELECT * FROM Teams INNER JOIN Users ON Teams.OwnerID = Users.UserID ORDER BY Teams.TeamName',
     function(err, rows, fields) {
+				var teams = false;
         if (err) {throw err;}
-        if (!rows.length) {return res.status(404).end();}
-        res.render('teamids', { rows: rows});
+        if (rows.length > 0) {
+					teams = rows;
+				}
+        res.render('teams', { 
+					user: req.user,
+					teams: teams,
+					action: action,
+					entities: entities
+				});
   });
   console.log(query.sql);
 });
@@ -17,9 +38,12 @@ router.get('/', function(req, res) {
 router.get('/:id', function(req, res) {
   var query = connection.query('SELECT * from Teams WHERE TeamID=?', [req.params.id],
     function(err, rows, fields) {
+				var team = false;
         if (err) {throw err;}
-        if (!rows.length) {return res.status(404).end();}
-        res.render('teamids', { rows: rows});
+        if (!rows.length) {
+					return res.status(404).render('teamids', { user:req.user, team: false});
+				}
+        res.render('teamids', { user:req.user, team: rows[0]});
   });
 
   console.log("Requested teamid - " + req.params.name);
@@ -28,7 +52,7 @@ router.get('/:id', function(req, res) {
 // Create team
 router.post('/create', function(req, res) {
   console.log(req.body);
-  var query = connection.query('INSERT INTO Teams(TeamName, TeamDescription, OwnerID) VALUES (?,?,?)', [req.param('name'), req.param('desc'), req.param('owner')],
+  var query = connection.query('INSERT INTO Teams(TeamName, TeamDescription, OwnerID) VALUES (?,?,?)', [req.param('team_name'), req.param('team_description'), req.param('team_owner')],
     function(err, result) {
         if (err) {res.send('Please provide name and desc headers'); throw err;}
         res.send('OK');

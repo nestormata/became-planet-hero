@@ -1,0 +1,14 @@
+<% if(typeof user != 'undefined') { %>
+  <div id="team-form-<%= action.identifier %>" class="entity-form entity-<%= action.identifier %>">
+    <form method="<%= action.method %>" action="<%= action.path %>">
+      <input type="hidden" name="team_owner" value="<%= user.UserID %>" />
+     <h3><%= action.title %></h3>
+     <label for="team_name">Name</label>
+     <input type="textfield" name="team_name" id="team-name-field" />
+     <label for="team_description">About</label>
+     <textarea name="team_description" id="team-description-field"></textarea>
+     <input type="submit" value="<%= action.name %>" />
+     <div class="spacer"></div>
+   </form>
+  </div>
+<% } %>

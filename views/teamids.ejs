@@ -1,18 +1,17 @@
+<% include head %>
+<% include top %>
 <div>
-	<table border="1">
-		<tr>
-		<th>TeamID</th>
-		<th>TeamName</th>
-		<th>TeamDescription</th>
-		<th>OwnerID</th>
-		</tr>
-		<% for(var i=0; i<rows.length; i++) {%>
-			<tr>
-			<td><%= rows[i].TeamID %></td>
-			<td><%= rows[i].TeamName %></td>
-			<td><%= rows[i].TeamDescription %></td>
-			<td><%= rows[i].OwnerID %></td>
-			</tr>
-		<% } %>
-	</table>
+<% if (team) { %>
+  <dl>
+    <dt>Name</dt>
+		<td><%= team.TeamName %></td>
+    <dt>About</dt>
+		<td><%= team.TeamDescription %></td>
+    <dt>Leader</dt>
+		<td><%= team.OwnerID %>-change to owner info</td>
+  </dl>
+<% } else { %>
+  <div class="message error">Team not found!</div>
+<% } %>
 </div>
+<% include bottom %>

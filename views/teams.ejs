@@ -1,0 +1,22 @@
+<% include head %>
+		<script src="/javascripts/entities.js"></script>
+<% include top %>
+<% include entity_top %>
+<% include team_form %>
+<div>
+<% if (teams) { %>
+		<% for(var i=0; i<teams.length; i++) {%>
+      <dl>
+        <dt>Name</dt>
+    		<td><%= teams[i].TeamName %></td>
+       <dt>About</dt>
+    		<td><%= teams[i].TeamDescription %></td>
+       <dt>Leader</dt>
+    		<td><%= teams[i].FirstName %></td>
+      </dl>
+		<% } %>
+<% } else { %>
+  <div class="message">No teams found!</div>
+<% } %>
+</div>
+<% include bottom %>

@@ -25,6 +25,15 @@ footer {
  
 }
 
+.container {
+  padding:1em;
+}
+
+.spacer {
+  width: 100%;
+  display: block;
+  clear: both;
+}
 
 #masthead {
   min-height:199px;
@@ -79,6 +88,15 @@ a,a:hover {
 @media screen and (min-width: 768px) {
   #masthead h1 {
     font-size: 60px;
+  }
+  .entity-form form {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    padding-right:0em;
+    padding-left:0em;
   }
 }
 
@@ -197,6 +215,90 @@ a,a:hover {
     height: 15em;
   }
 }
+
+.message {
+  margin: 1em;
+  padding: 0.5em 0;
+  border: 2px solid #999;
+  background-color: #FFF;
+  border-radius: 0.25em;
+  text-align: center;
+  color: #555;
+}
+.message.info {
+  color: #55AA55;
+  border-color: #339933;
+}
+.message.warning {
+  color: #99AA44;
+  border-color: #779922;
+}
+.message.error {
+  color: #AA5555;
+  border-color: #993333;
+}
+
+#entity-menu {
+  list-style: none;
+  clear: both;
+  display: block;
+  padding: 0;
+}
+#entity-menu li {
+  float: left;
+}
+#entity-menu .entity-title {
+  font-size: 150%;
+  font-weight: bold;
+}
+#entity-menu .entity-add a {
+  text-indent: -9999px;
+  background: url('/img/add_button.svg') no-repeat;
+  background-size: 1em 1em;
+  display: block;
+  width: 1em;
+  margin: 0.5em 0.25em 0 0.25em;
+}
+.entity-form {
+  display: none;
+}
+.entity-form form {
+  padding: 0.5em;
+  border: 2px solid #999;
+  background-color: #FFF;
+  border-radius: 0.25em;
+  text-align: center;
+  color: #555;
+  width: 100%;
+}
+.entity-form h3 {
+  text-align: left;
+}
+.entity-form label {
+  float: left;
+  clear: left;
+  margin-right: 1em;
+  margin-top: 0.25em;
+}
+.entity-form label:after {
+  content: ":";
+}
+.entity-form input {
+  float: left;
+  clear: right;
+  margin-top: 0.25em;
+}
+.entity-form input[type="submit"] {
+  float:left;
+  clear: both;
+  margin-top: 0.5em;
+}
+.entity-form textarea {
+  float:left;
+  clear: both;
+  width: 100%;
+}
+
     
 .btn-twitter {background-color:#4099FF;color:#fff;}
 .btn-facebook {background-color:#3B5998;color:#fff;}

@@ -11,10 +11,4 @@ CREATE TABLE UserBans(
 	foreign key (InitializerID) references Users(UserID)
 );
 
-CREATE TABLE Teams  (
-	TeamID integer unsigned primary key not null auto_increment,
-	TeamName varchar(50) not null,
-	TeamDescription text
-);
-
-ALTER TABLE Teams ADD COLUMN OwnerID integer unsigned NOT NULL after TeamDescription;
+ALTER TABLE Teams ADD COLUMN OwnerID integer unsigned NOT NULL after TeamID;

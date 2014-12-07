@@ -28,8 +28,8 @@
 						</div><!-- /gn-scroller -->
 					</nav>
 				</li>
-        <li><a href="/"><img src="img/leaflogo.png" style="width:22px;vertical-align:middle;margin:-4px 5px 0 auto;">Planet Hero</a></li>
-	      <% if (user) { %>
+        <li><a href="/"><img src="/img/leaflogo.png" style="width:22px;vertical-align:middle;margin:-4px 5px 0 auto;">Planet Hero</a></li>
+	      <% if (typeof user != 'undefined') { %>
 				  <li><a class="codrops-icon codrops-icon-drop" href="/account/"><span><%= user.FirstName %></span></a></li>
         <% } else { %>
 				  <li><a class="codrops-icon codrops-icon-drop" href="/auth/facebook/"><span>Sign In</span></a></li>
