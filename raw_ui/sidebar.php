@@ -6,7 +6,7 @@
 							<ul class="gn-menu">
 								<li><a href="index.php"><span class="list_item">Home</span></a></li>
 								<li>
-									<a><span class="list_item">My Secret Cave</span></a>
+									<a href="cave.php"><span class="list_item">My Secret Cave</span></a>
 									<ul class="gn-submenu">
 										<li><a href="badges.php"><span class="list_subitem">Badges</span></a></li>
                                         <!-- For reference -->
@@ -32,7 +32,7 @@
 						</div><!-- /gn-scroller -->
 					</nav>
 				</li>
-				<li><a href="index.php">Planet Hero</a></li>
+				<li><a href="index.php"><img src="img/leaflogo.png" style="width:22px;vertical-align:middle;margin:-4px 5px 0 auto;">Planet Hero</a></li>
 				<li><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=16030"><span>Sign In</span></a></li>
 			</ul>
         <style> .list_item{margin-left:60px;}.list_subitem{margin-left:80px;}</style>
