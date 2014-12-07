@@ -4,12 +4,14 @@
 		<th>TeamID</th>
 		<th>TeamName</th>
 		<th>TeamDescription</th>
+		<th>OwnerID</th>
 		</tr>
 		<% for(var i=0; i<rows.length; i++) {%>
 			<tr>
 			<td><%= rows[i].TeamID %></td>
-			<tr><%= rows[i].TeamName %></tr>
-			<tr><%= rows[i].TeamDescription %></tr>
+			<td><%= rows[i].TeamName %></td>
+			<td><%= rows[i].TeamDescription %></td>
+			<td><%= rows[i].OwnerID %></td>
 			</tr>
 		<% } %>
 	</table>
