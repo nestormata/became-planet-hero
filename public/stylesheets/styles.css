@@ -9,6 +9,7 @@ body {
   padding-top:50px;
   color:#646464;
   background-color:#efefef;
+  font-size: 2vw;
 }
 
 h1,h2,h3,.highlight,.navbar a,#masthead h4 {
@@ -156,6 +157,45 @@ a,a:hover {
   opacity:.9;
   padding:6px;
   color:#fff;
+}
+#main-top {
+  width: 100%;
+  background-size: 100% auto;
+  background-image: url('/img/back.png');
+  background-repeat: no-repeat;
+  height: 30em;
+}
+#main-top h1, #main-top h2 {
+  color: #EEE;
+  text-align: center;
+}
+#main-top h1 {
+  font-size: 250%;
+}
+#main-top h2 {
+}
+@media screen and (max-width: 1200px) {
+  #main-top {
+    background-image: url('/img/back_big.png');
+  }
+}
+@media screen and (max-width: 800px) {
+  body {
+    font-size: 3vw;
+  }
+  #main-top {
+    background-image: url('/img/back_medium.png');
+    height: 20em;
+  }
+}
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 4vw;
+  }
+  #main-top {
+    background-image: url('/img/back_small.png');
+    height: 15em;
+  }
 }
     
 .btn-twitter {background-color:#4099FF;color:#fff;}
