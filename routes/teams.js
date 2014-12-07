@@ -29,7 +29,7 @@ router.get('/:id', function(req, res) {
 // Create team
 router.post('/create', function(req, res) {
   console.log(req.body);
-  var query = connection.query('INSERT INTO Teams VALUES (?,?,?)', [req.param('id'), req.param('name'), req.param('desc')],
+  var query = connection.query('INSERT INTO Teams(TeamName, TeamDescription) VALUES (?,?)', [req.param('name'), req.param('desc')],
     function(err, result) {
         if (err) {throw err;}
         res.send('OK');
