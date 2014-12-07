@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS Earned, Badges, TeamMembers, Teams, UserChallenges, Challenges, EventParticipants, Events, Users;
+DROP TABLE IF EXISTS UserBans, Earned, Badges, TeamMembers, Teams, UserChallenges, Challenges, EventParticipants, Events, Users;
 
 Create Table Users  (
 	UserID integer unsigned primary key not null AUTO_INCREMENT,
