@@ -14,6 +14,7 @@ var express         = require('express'),
     users           = require('./routes/users'),
     teams           = require('./routes/teams'),
     events          = require('./routes/events'),
+    challenges      = require('./routes/challenges'),
     app             = express(),
     config          = require('./configuration/config.' + app.get('env')),
     connection      = require('./helpers/mysql.js');
@@ -95,6 +96,7 @@ app.use('/login', routes);
 app.use('/users', users);
 app.use('/teams', teams);
 app.use('/events', events);
+app.use('/events', challenges);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
