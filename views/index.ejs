@@ -1,16 +1,47 @@
 <% include head %>
 <% include top %>
 <% include sidebar %>
-			<header>
+        <img src="img/back.png" style="width:100%">
 	      <h1><%= title %>
 	        <% if (typeof subtitle != 'undefined') { %>
             <span><%= subtitle %></span>
           <% } %>
         </h1>
-			</header> 
 	<% if (user) { %>
     <div>Hi, <%= user.FirstName %>!</div>
   <% } else { %>
     <div>Welcome, please <a href="/auth/facebook/">login</a></div> 
   <% } %>
+            <ul class="grid cs-style-4" style="max-width:1600px;">
+                <li>
+					<figure>
+						<div><img src="img/badges.png" alt="Badges"></div>
+						<figcaption>
+							<h3>Badges</h3>
+							<span>Your collection of badges!</span>
+							<a href="badges.php">Take a look</a>
+						</figcaption>
+					</figure>
+				</li>
+                <li>
+					<figure>
+						<div><img src="img/hall.png" alt="Hall of fame"></div>
+						<figcaption>
+							<h3>Hall of Fame</h3>
+							<span>Best in the league!</span>
+							<a href="hall.php">Take a look</a>
+						</figcaption>
+					</figure>
+				</li>
+                <li>
+					<figure>
+						<div><img src="img/calendar.png" alt="Badges"></div>
+						<figcaption>
+							<h3>Calendar</h3>
+							<span>Time to save the planet!</span>
+							<a href="calendar.php">Take a look</a>
+						</figcaption>
+					</figure>
+				</li>
+            </ul>
 <% include bottom %>
