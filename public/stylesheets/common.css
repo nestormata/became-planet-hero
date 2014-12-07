@@ -1,0 +1,273 @@
+body{
+	background:#EEE;
+	}
+.preload_bg{
+	background:#fff;
+	width:100%;
+	height:100%;
+	position:fixed;
+	z-index:99;
+	top:0;
+	bottom:0;
+	}
+.loading_ani{
+	width:128px;
+	height:15px;
+	background:url(../common/ajax-loader.gif) no-repeat;
+	position:fixed;
+	margin-left:50%;
+	margin-right:50%;
+	left:-64px;
+	margin-top:290px;
+	}
+#loading_logo{
+	background: url(../common/navibar_logo.png) no-repeat;
+	width: 89px;
+	height: 100px;
+	display: inline-block;
+	margin-top: 10px;
+	}
+/*navi bar*/
+#wrapper_main{
+	background:#FFF;
+	width:1100px;
+	margin:auto;
+	text-align:center;
+	min-height:800px;
+	}
+#navibar_logo{
+	background:url(../common/navibar_logo.png) no-repeat;
+	width:470px;
+	height:100px;
+	display:inline-block;
+	margin-top:10px;
+	}
+.navibar_content_list{
+	width:100%;
+	text-align:center;
+	display:inline-block;
+	margin-bottom:10px;
+	margin-top:10px;
+	}
+.navibar_content_list li{
+	display:inline-block;
+	margin-right:15px;
+	margin-left:15px;
+	color:#555;
+	}
+.navibar_content_icon{
+	background:url(../common/navibar_content_icon.png) no-repeat;
+	width:48px;
+	height:48px;
+	display:inline-block;
+	vertical-align:middle;
+	}
+.navibar_content{
+	display:inline-block;
+	vertical-align:middle;
+	margin-left:5px;
+	cursor:pointer;
+	}
+.navibar_content:hover{
+	color:#c2c60d;
+	}
+#aboutus_icon{
+	background-position:-18px -5px;
+	}
+#tutoring_icon{
+	background-position:-75px -5px;
+	}
+#counselling_icon{
+	background-position:-127px -5px;
+	}
+#serviceaboard_icon{
+	background-position:-177px -5px;
+	}
+#liveoxford_icon{
+	background-position:-229px -5px;
+	}
+#meettheteam_icon{
+	background-position:-275px -5px;
+	}
+.slider-wrapper{
+	width:1100px;
+	margin:auto;
+	}
+#slider_shadow{
+	width:1100px;
+	height:300px;
+	z-index:99;
+	position:absolute;
+	box-shadow:inset 0 0 10px #555;
+	}
+.divider{
+	width:1100px;
+	height:11px;
+	position:absolute;
+	background:url(../common/divider.png);
+	}
+.divider_b{
+	width:1100px;
+	height:11px;
+	position:absolute;
+	background:url(../common/divider_b.png);
+	margin-top: -6px;
+	z-index: 70;
+	}
+.cover_img{
+	width:1100px;
+	height:300px;
+	}
+.cover_content_holder{
+	position:absolute;
+	width:800px;
+	margin-left:60px;
+	margin-top:60px;
+	text-align:justify;
+	}
+.cover_content_title{
+	font-size:40px;
+	font-weight:700;
+	color:#fff;
+	text-shadow:0 0 15px #444;
+	}
+.cover_content_txt{
+	margin-top:17px;
+	padding:20px;
+	background:url(../common/black.png);
+	font-size:16px;
+	color:#fff;
+	line-height:20px;
+	}
+.sub_page_button{
+	display: inline-block;
+	background: #fff;
+	padding: 10px;
+	width: 120px;
+	text-align: center;
+	border-radius: 5px;
+	font-weight:700;
+	cursor:pointer;
+	}
+.sub_page_button_a{
+	color:#c2c60d;
+	}
+.sub_page_button:hover{
+	background:#c2c60d;
+	color:#fff;
+	}
+.content_img{
+	display:inline-block;
+	}
+#highsku_img{
+	width:421px;
+	height:295px;
+	background:url(../tutoring/high_sku.png);
+	}
+#highsku_img2{
+	width:421px;
+	height:295px;
+	background:url(../tutoring/high_sku2.png);
+	}
+#primarysku_img{
+	width:421px;
+	height:295px;
+	background:url(../tutoring/primary_sku.png);
+	}
+.content_holder{
+	display: inline-block;
+	width: 580px;
+	text-align: justify;
+	vertical-align: top;
+	margin-top: 50px;
+	line-height: 25px;
+	padding: 20px;
+	}
+h1{
+	font-size: 30px;
+	margin-bottom: 20px;
+	color: #c3c60d;
+	}
+.content_holder2{
+	display: inline-block;
+	width: 700px;
+	text-align: justify;
+	vertical-align: top;
+	margin-top: 50px;
+	line-height: 25px;
+	padding: 20px;
+	}
+h2{
+	font-size: 25px;
+	margin-bottom: 20px;
+	color: #555;
+	}
+.content_wrapper{
+	padding-top:20px;
+	padding-bottom:20px;
+	border-bottom:1px solid #CCC;
+	}
+.content_shrt_p{
+	margin-bottom:20px;
+	}
+.content_list{
+	width:800px;
+	margin-top:20px;
+	margin-left:80px;
+	}
+.content_list li{
+	list-style-type:disc;
+	padding:20px;
+	}
+.content_bg{
+	width:1100px;
+	height:344px;
+	position:absolute;
+	z-index:70;
+	margin-top:-20px;
+	}
+#pt_img{
+	background:url(../counselling/pt_cover.jpg) no-repeat;
+	}
+#u_img{
+	background:url(../counselling/u_cover.jpg) no-repeat;
+	}
+.ptc{
+	display:none;
+	}
+.uc{
+	display:none;
+	}
+.index_highlight_box{
+	width:334px;
+	height:349px;
+	display:inline-block;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	margin-bottom:100px;
+	box-shadow:0 0 5px #555;
+	margin-left:10px;
+	}
+#index_tutoring_box{
+	background:url(../index/tutoring.jpg);
+	border-top: 17px solid #ff9000;
+	}
+#index_counselling_box{
+	background:url(../index/counselling.jpg);
+	border-top: 17px solid #008FFF;
+	}
+iframe{
+	margin-top: -102px;
+	margin-left: 11px;
+	}
+#consult_icon{
+	width:316px;
+	height:105px;
+	background:url(../common/freeconsult.png) no-repeat;
+	position:fixed;
+	top:448px;
+	margin-left:50%;
+	z-index:90;
+	left: 370px;
+	}
