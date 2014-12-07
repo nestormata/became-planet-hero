@@ -1,12 +1,14 @@
 <% include head %>
 <% include top %>
 <% include sidebar %>
-        <img src="img/back.png" style="width:100%">
-	      <h1><%= title %>
-	        <% if (typeof subtitle != 'undefined') { %>
-            <span><%= subtitle %></span>
-          <% } %>
-        </h1>
+    <div id="main-top">
+    <!--
+	      <h1><%= title %></h1>
+	      <% if (typeof subtitle != 'undefined') { %>
+          <h2><%= subtitle %></h2>
+        <% } %>
+     -->
+    </div>
 	<% if (user) { %>
     <div>Hi, <%= user.FirstName %>!</div>
   <% } else { %>
