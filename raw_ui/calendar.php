@@ -105,8 +105,8 @@
 <body>
 <div class="container">
 			<?php include 'sidebar.php' ?>
-			<header>
-				<h1>Be A Planet Hero<span>Make a little difference and save the world</span></h1>	
+			<header style="background:#276786;">
+				<h1>Calendar<span style="color:#FFFFFF;">Time to Save the Planet!</span></h1>	
 			</header> 
     <div id='calendar'></div>
 		</div><!-- /container -->
