@@ -15,12 +15,13 @@ var express         = require('express'),
     teams           = require('./routes/teams'),
     events          = require('./routes/events'),
     app             = express(),
-    config          = require('./configuration/config.' + app.get('env')),
-    connection      = require('./helpers/mysql.js');
+    config          = require('./configuration/config.' + app.get('env'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+var connection = require('./helpers/mysql.js');
 
 //Connect to Database only if Config.js parameter is set.
 if(config.use_database==='true')

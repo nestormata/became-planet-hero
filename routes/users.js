@@ -21,7 +21,6 @@ router.get('/:id', function(req, res) {
         if (!rows.length) {return res.status(404).end();}
         res.render('userids', { rows: rows});
   });
-
   console.log("Requested userid - " + req.params.name);
 });
 
