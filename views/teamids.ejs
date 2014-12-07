@@ -3,12 +3,12 @@
 <div>
 <% if (team) { %>
   <dl>
-    <dt>Name</dt>
-		<td><%= team.TeamName %></td>
-    <dt>About</dt>
-		<td><%= team.TeamDescription %></td>
-    <dt>Leader</dt>
-		<td><%= team.OwnerID %>-change to owner info</td>
+    <dt class="card-name">Name</dt>
+		<dd class="card-name"><%= team.TeamName %></dd>
+    <dt class="card-person">Leader</dt>
+		<dd class="card-person"><%= team.FirstName %></dd>
+    <dt class="card-description">About</dt>
+		<dd class="card-description"><%= team.TeamDescription %></dd>
   </dl>
 <% } else { %>
   <div class="message error">Team not found!</div>

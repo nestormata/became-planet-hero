@@ -1,5 +1,5 @@
 	</head>
-	<body>
+	<body class="<%= typeof identifiers != 'undefined'?identifiers.join(' '):'' %>">
 <script>
 $(window).load(function(){
 	$('.preload_bg').fadeOut();
@@ -36,4 +36,13 @@ $(window).load(function(){
 </style>
 <div class="preload_bg"><div id="loading_logo" style="margin-left: 50%; margin-right: 50%; left: -55px; position: fixed; margin-top: 180px;"></div><div class="loading_ani"></div></div>
     <% include sidebar %>
+    <% include entity_top %>
  		<div class="container">
+    <% if(typeof req != 'undefined' && req.session.message) { %>
+      <div class="message info"><%= req.session.message %></div>
+      <% req.session.message = false %>
+    <% } %>
+    <% if(typeof req != 'undefined' && req.session.error) { %>
+      <div class="message error"><%= req.session.error %></div>
+      <% req.session.error = false %>
+    <% } %>

@@ -27,6 +27,8 @@ footer {
 
 .container {
   padding:1em;
+  background-color: #FFF;
+  margin: -2em 2em 0em 2em;
 }
 
 .spacer {
@@ -35,13 +37,13 @@ footer {
   clear: both;
 }
 
-#masthead {
+#entity-menu {
   min-height:199px;
   background-color:#000044;
   color:#aaaacc;
 }
 
-#masthead h1 {
+#entity-menu .entity-menu-item, #entity-menu .entity-menu-item a {
   font-size: 55px;
   line-height: 1;
   color:#fefeff;
@@ -95,8 +97,12 @@ a,a:hover {
 }
 @media screen and (max-width: 768px) {
   .container {
-    padding-right:0em;
-    padding-left:0em;
+    padding-right:0.25em;
+    padding-left:0.25em;
+    margin: 0;
+  }
+  #entity-menu {
+   padding: 0 1em;
   }
 }
 
@@ -242,9 +248,9 @@ a,a:hover {
   list-style: none;
   clear: both;
   display: block;
-  padding: 0;
+  padding: 0 2em;
 }
-#entity-menu li {
+#entity-menu .entity-menu-item {
   float: left;
 }
 #entity-menu .entity-title {
@@ -254,7 +260,7 @@ a,a:hover {
 #entity-menu .entity-add a {
   text-indent: -9999px;
   background: url('/img/add_button.svg') no-repeat;
-  background-size: 1em 1em;
+  background-size: 0.5em 0.5em;
   display: block;
   width: 1em;
   margin: 0.5em 0.25em 0 0.25em;
@@ -297,6 +303,42 @@ a,a:hover {
   float:left;
   clear: both;
   width: 100%;
+}
+
+dl {
+  border-bottom: 1px solid #EEE;
+  padding-bottom: 0.5em;
+}
+dt {
+  display: none;
+}
+dd {
+  font-family:courier,'new courier';
+  color:#777;
+}
+dl .card-name {
+  font-family:'Oswald',arial narrow,sans-serif;
+  font-size: 150%;
+}
+dl .card-description {
+}
+dl dd.card-person {
+  background-color:#777;
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+  top: -0.5em;
+  position: relative;
+}
+dl dd.card-actions {
+  font-size: 75%;
 }
 
     

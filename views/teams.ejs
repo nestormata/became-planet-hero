@@ -1,18 +1,18 @@
 <% include head %>
 		<script src="/javascripts/entities.js"></script>
 <% include top %>
-<% include entity_top %>
 <% include team_form %>
 <div>
 <% if (teams) { %>
 		<% for(var i=0; i<teams.length; i++) {%>
       <dl>
-        <dt>Name</dt>
-    		<td><%= teams[i].TeamName %></td>
-       <dt>About</dt>
-    		<td><%= teams[i].TeamDescription %></td>
-       <dt>Leader</dt>
-    		<td><%= teams[i].FirstName %></td>
+        <dt class="card-name">Name</dt>
+    		<dd class="card-name"><a href="/teams/<%= teams[i].TeamID %>"><%= teams[i].TeamName %></a></dd>
+        <dt class="card-person">Leader</dt>
+    		<dd class="card-person"><%= teams[i].FirstName %></dd>
+        <dt class="card-description">About</dt>
+    		<dd class="card-description"><%= teams[i].TeamDescription %></dd>
+    		<dd class="card-actions"><a href="/teams/<%= teams[i].TeamID %>">See more &gt;&gt;</a></dd>
       </dl>
 		<% } %>
 <% } else { %>
