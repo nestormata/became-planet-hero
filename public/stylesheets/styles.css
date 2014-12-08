@@ -355,7 +355,7 @@ dl dd.card-actions {
   margin-left: 0.5em
 }
 .fa.spaced-icon {
-  margin-left: 1em;
+  padding-left: 1em;
 }
 .fa.spaced-icon span {
   margin-left: 1.5em

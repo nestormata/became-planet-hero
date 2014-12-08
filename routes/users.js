@@ -4,7 +4,8 @@ var express = require('express'),
 
 var entities = {
 	title: 'Heroes',
-	home: '/users/'
+	home: '/users/',
+	can_add: false
 };
 var page_identifiers = ['heroes'];
 

@@ -1,7 +1,7 @@
 <% if(typeof entities != 'undefined'){ %>
   <div id="entity-menu">
    <h1 class="entity-title entity-menu-item"><a href="<%= entities.home %>"><%= entities.title %></a></h1>
-   <% if(typeof user != 'undefined') { %>
+   <% if(typeof user != 'undefined' && entities.can_add) { %>
      <div class="entity-add entity-menu-item"><a href="#" class="entity-add-button">Add</a></div>
    <% } %>
     <div class="spacer"></div>

@@ -4,19 +4,28 @@
     <title>add_button</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <path id="path-1" d="M28,12.5 L28,46.5"></path>
-        <path id="path-2" d="M45,29.5 L11,29.5"></path>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.35 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path id="path-2" d="M27,14.7650136 L27,44.0458505"></path>
+        <path id="path-3" d="M42.7540488,28 L13.4732119,28"></path>
     </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
         <g id="add_button" sketch:type="MSArtboardGroup">
-            <rect id="Rectangle-1" stroke="#BEBEBE" stroke-width="4" fill="#82AF57" sketch:type="MSShapeGroup" x="0" y="0" width="60" height="60" rx="10"></rect>
+            <rect id="Rectangle-1" stroke="#BEBEBE" stroke-width="4" fill="#82AF57" filter="url(#filter-1)" sketch:type="MSShapeGroup" x="4" y="4" width="51.6720651" height="51.6720651"></rect>
             <g id="Line">
-                <use stroke="#FFFFFF" stroke-width="4" stroke-linecap="square" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
-                <use stroke="none" xlink:href="#path-1"></use>
-            </g>
-            <g id="Line-2">
                 <use stroke="#FFFFFF" stroke-width="4" stroke-linecap="square" sketch:type="MSShapeGroup" xlink:href="#path-2"></use>
                 <use stroke="none" xlink:href="#path-2"></use>
+            </g>
+            <g id="Line-2">
+                <use stroke="#FFFFFF" stroke-width="4" stroke-linecap="square" sketch:type="MSShapeGroup" xlink:href="#path-3"></use>
+                <use stroke="none" xlink:href="#path-3"></use>
             </g>
         </g>
     </g>

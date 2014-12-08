@@ -4,7 +4,8 @@ var express = require('express'),
 
 var entities = {
 	title: 'Hero Leagues',
-	home: '/teams/'
+	home: '/teams/',
+	can_add: true
 };
 var page_identifiers = ['teams'];
 
