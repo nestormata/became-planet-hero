@@ -31,6 +31,12 @@ footer {
   margin: -2em 2em 0em 2em;
 }
 
+.homepage .container {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+}
+
 .spacer {
   width: 100%;
   display: block;
@@ -336,6 +342,9 @@ dl dd.card-person {
   border-radius: .25em;
   top: -0.5em;
   position: relative;
+}
+dl dd.card-person a {
+  color: #fff;
 }
 dl dd.card-actions {
   font-size: 75%;

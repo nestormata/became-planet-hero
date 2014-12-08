@@ -3,7 +3,7 @@ var express = require('express'),
     router = express.Router();
 
 var entities = {
-	title: 'Teams',
+	title: 'Hero Leagues',
 	home: '/teams/'
 };
 var page_identifiers = ['teams'];
@@ -12,7 +12,7 @@ var page_identifiers = ['teams'];
 router.get('/', function(req, res) {
 	var action = {
 		name: 'Add',
-		title: 'Add a new team',
+		title: 'Add a new league',
 		method: 'POST',
 		path: '/teams/create/',
 		identifier: 'create'

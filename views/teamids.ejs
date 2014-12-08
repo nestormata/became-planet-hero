@@ -6,7 +6,7 @@
     <dt class="card-name">Name</dt>
 		<dd class="card-name"><%= team.TeamName %></dd>
     <dt class="card-person">Leader</dt>
-		<dd class="card-person"><%= team.FirstName %></dd>
+    <dd class="card-person"><a href="/users/<%= team.UserID %>"><%= team.FirstName %></a></dd>
     <dt class="card-description">About</dt>
 		<dd class="card-description"><%= team.TeamDescription %></dd>
   </dl>

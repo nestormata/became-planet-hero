@@ -1,28 +1,20 @@
+<% include head %>
+<% include top %>
 <div>
-	<table border="1">
-		<tr>
-			<th>UserID</th>
-			<th>LastName</th>
-			<th>FirstName</th>
-			<th>Email</th>
-			<th>Country</th>
-			<th>City</th>
-			<th>Registered</th>
-			<th>FBID</th>
-			<th>Status</th>
-		</tr>
-		<% for(var i=0; i<rows.length; i++) {%>
-			<tr>
-				<td><%= rows[i].UserID %></td>
-				<td><%= rows[i].LastName %></td>
-				<td><%= rows[i].FirstName %></td>
-				<td><%= rows[i].Email %></td>
-				<td><%= rows[i].Country %></td>
-				<td><%= rows[i].City %></td>
-				<td><%= rows[i].Registered %></td>
-				<td><%= rows[i].FBID %></td>
-				<td><%= rows[i].Status %></td>
-			</tr>
-		<% } %>
-	</table>
+<% if (hero) { %>
+  <dl>
+    <dt class="card-name">Name</dt>
+    <dd class="card-name"><%= hero.FirstName %> <%= hero.LastName %></dd>
+      <% if (hero.Country != '--' || hero.City != '--') { %>
+        <dt class="card-detail">Location</dt>
+    		<dd class="card-detail">
+          <%= hero.City %><%= hero.City!='--' && hero.Country!='--'?',':'' %>
+          <%= hero.Country %>
+        </dd>
+      <% } %>
+  </dl>
+<% } else { %>
+  <div class="message error">User not found!</div>
+<% } %>
 </div>
+<% include bottom %>

@@ -2,13 +2,28 @@ var express = require('express'),
     connection = require('../helpers/mysql.js'),
     router = express.Router();
 
+var entities = {
+	title: 'Heroes',
+	home: '/users/'
+};
+var page_identifiers = ['heroes'];
+
 // Get full list of users
 router.get('/', function(req, res) {
   var query = connection.query('SELECT * from Users',
     function(err, rows, fields) {
+				var heroes = false;
         if (err) {throw err;}
-        if (!rows.length) {return res.status(404).end();}
-        res.render('userids', { rows: rows});
+        if (rows.length > 0) {
+					heroes = rows;
+				}
+        res.render('users', { 
+					req: req,
+					user: req.user,
+					heroes: heroes,
+					entities: entities,
+					identifiers: page_identifiers.concat(['heroes-front'])
+				});
   });
   console.log(query.sql);
 });
@@ -17,9 +32,27 @@ router.get('/', function(req, res) {
 router.get('/:id', function(req, res) {
   var query = connection.query('SELECT * from Users WHERE UserID=?', [req.params.id],
     function(err, rows, fields) {
+				var hero = false;
+				var earned = [];
         if (err) {throw err;}
-        if (!rows.length) {return res.status(404).end();}
-        res.render('userids', { rows: rows});
+        if (!rows.length) {
+					return res.status(404).render('userids', { 
+						req: req,
+						user:req.user, 
+						hero: false,
+						entities: entities,
+						identifiers: page_identifiers.concat(['users-user'])
+					});
+				}
+				hero = rows[0];
+				// TODO: get the list of earned info here
+        res.render('userids', { 
+					req: req,
+					user:req.user, 
+					hero: hero,
+					entities: entities,
+					identifiers: page_identifiers.concat(['users-user'])
+				});
   });
   console.log("Requested userid - " + req.params.name);
 });

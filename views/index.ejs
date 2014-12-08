@@ -9,9 +9,8 @@
      -->
     </div>
 	<% if (typeof user != 'undefined') { %>
-    <div>Hi, <%= user.FirstName %>!</div>
   <% } else { %>
-    <div>Welcome, please <a href="/auth/facebook/">login</a></div> 
+    <div class="message">Became a Hero! <a href="/auth/facebook/">Login with Facebook</a></div> 
   <% } %>
             <ul class="grid cs-style-4" style="max-width:1600px;">
                 <li>

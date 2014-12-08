@@ -9,6 +9,7 @@ router.get('/', function(req, res) {
   res.render('index', { 
 		title: 'Became a Planet Hero', 
 		subtitle: 'Make a little difference and save the world',
+		identifiers: ['homepage'],
 		user: req.user 
 		});
 });

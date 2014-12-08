@@ -9,7 +9,7 @@
     </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
         <g id="add_button" sketch:type="MSArtboardGroup">
-            <rect id="Rectangle-1" stroke="#FFFFFF" stroke-width="4" fill="#82AF57" sketch:type="MSShapeGroup" x="0" y="0" width="60" height="60" rx="10"></rect>
+            <rect id="Rectangle-1" stroke="#BEBEBE" stroke-width="4" fill="#82AF57" sketch:type="MSShapeGroup" x="0" y="0" width="60" height="60" rx="10"></rect>
             <g id="Line">
                 <use stroke="#FFFFFF" stroke-width="4" stroke-linecap="square" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
                 <use stroke="none" xlink:href="#path-1"></use>

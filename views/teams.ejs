@@ -9,7 +9,7 @@
         <dt class="card-name">Name</dt>
     		<dd class="card-name"><a href="/teams/<%= teams[i].TeamID %>"><%= teams[i].TeamName %></a></dd>
         <dt class="card-person">Leader</dt>
-    		<dd class="card-person"><%= teams[i].FirstName %></dd>
+    		<dd class="card-person"><a href="/users/<%= teams[i].UserID %>"><%= teams[i].FirstName %></a></dd>
         <dt class="card-description">About</dt>
     		<dd class="card-description"><%= teams[i].TeamDescription %></dd>
     		<dd class="card-actions"><a href="/teams/<%= teams[i].TeamID %>">See more &gt;&gt;</a></dd>

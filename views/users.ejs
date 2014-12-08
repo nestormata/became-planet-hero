@@ -1,0 +1,24 @@
+<% include head %>
+		<script src="/javascripts/entities.js"></script>
+<% include top %>
+<div>
+<% if (heroes) { %>
+		<% for(var i=0; i<heroes.length; i++) {%>
+      <dl>
+        <dt class="card-name">Name</dt>
+    		<dd class="card-name"><a href="/users/<%= heroes[i].UserID %>"><%= heroes[i].FirstName %> <%= heroes[i].LastName %></a></dd>
+        <% if (heroes[i].Country != '--' || heroes[i].City != '--') { %>
+          <dt class="card-detail">Location</dt>
+    		  <dd class="card-detail">
+            <%= heroes[i].City %><%= heroes[i].City!='--' && heroes[i].Country!='--'?',':'' %>
+            <%= heroes[i].Country %>
+          </dd>
+        <% } %>
+    		<dd class="card-actions"><a href="/users/<%= heroes[i].UserID %>">See more &gt;&gt;</a></dd>
+      </dl>
+		<% } %>
+<% } else { %>
+  <div class="message">No users found!</div>
+<% } %>
+</div>
+<% include bottom %>
