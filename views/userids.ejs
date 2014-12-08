@@ -2,8 +2,8 @@
 <% include top %>
 <div>
 <% if (hero) { %>
-  <dl>
-    <dt class="card-name">Name</dt>
+  <div class="card-photo"><img src="<%= hero.Image %>" class="user-info-photo" /></div>
+  <dl class="with-image">
     <dd class="card-name"><%= hero.FirstName %> <%= hero.LastName %></dd>
       <% if (hero.Country != '--' || hero.City != '--') { %>
         <dt class="card-detail">Location</dt>

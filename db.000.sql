@@ -23,7 +23,7 @@ Create Table Events (
 Create Table EventParticipants (
 	EventID integer unsigned not null,
 	UserID integer unsigned not null,
-	Status tinyint unsigned not null, -- 1 - participated, 0 - accepted the invitation but not visited
+	Status tinyint unsigned not null default 0, -- 1 - participated, 0 - accepted the invitation but not visited
 	primary key (EventID, UserID),
 	foreign key (EventID) references Events(EventID),
 	foreign key (UserID) references Users(UserID)

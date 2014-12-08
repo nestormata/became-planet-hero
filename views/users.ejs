@@ -4,8 +4,8 @@
 <div>
 <% if (heroes) { %>
 		<% for(var i=0; i<heroes.length; i++) {%>
-      <dl>
-        <dt class="card-name">Name</dt>
+      <div class="card-photo"><img src="<%= heroes[i].Image %>" class="user-info-photo" /></div>
+      <dl class="with-image">
     		<dd class="card-name"><a href="/users/<%= heroes[i].UserID %>"><%= heroes[i].FirstName %> <%= heroes[i].LastName %></a></dd>
         <% if (heroes[i].Country != '--' || heroes[i].City != '--') { %>
           <dt class="card-detail">Location</dt>

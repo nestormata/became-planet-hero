@@ -55,28 +55,40 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new FBStrategy({
     clientID: config.facebook_api_key,
     clientSecret:config.facebook_api_secret ,
-    callbackURL: config.callback_url
-		//profileFields: ['id', 'displayName', 'link', 'photos', 'emails']
+    callbackURL: config.callback_url,
+		profileFields: ['id', 'name', 'gender', 'displayName', 'link', 'picture', 'emails']
   },
   function(accessToken, refreshToken, profile, done) {
     process.nextTick(function () {
-			//console.log(util.inspect(profile, {showHidden: false, depth: null, colors: true}));
-      //Further DB code.
-			var query = connection.query(
-				'REPLACE INTO Users (LastName, FirstName, Email, Country, City, FBID) VALUES (?, ?, ?, ?, ?, ?)', 
+			console.log(util.inspect(profile, {showHidden: false, depth: null, colors: true}));
+			var update = connection.query('UPDATE Users SET LastName = ?, FirstName = ?, Email = ?, Image = ? WHERE FBID = ?',
 				[
 					profile.name.familyName,
 					profile.name.givenName,
 					profile.emails[0].value,
-					'--',
-					'--',
+					profile.photos[0].value,
 					profile.id
-				], 
-				function(err, result) {
-					console.log(err);
-					console.log(result);
-			  });
-			console.log(query.sql);
+				], function(err, result){
+					if (err) {
+						var insert = connection.query(
+							'INSERT INTO Users (LastName, FirstName, Email, Country, City, FBID, Image) VALUES (?, ?, ?, ?, ?, ?, ?)', 
+							[
+								profile.name.familyName,
+								profile.name.givenName,
+								profile.emails[0].value,
+								'--',
+								'--',
+								profile.id,
+								profile.photos[0].value
+							], 
+							function(err, result) {
+								console.log(err);
+								console.log(result);
+			 		 	});
+						console.log(insert.sql);
+					}
+				});
+			console.log(update.sql);
       return done(null, profile);
     });
   }

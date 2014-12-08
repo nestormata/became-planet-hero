@@ -2,14 +2,14 @@
 <% include top %>
 <div>
 <% if (team) { %>
-  <dl>
-    <dt class="card-name">Name</dt>
+  <div class="card-left">
 		<dd class="card-name"><%= team.TeamName %></dd>
-    <dt class="card-person">Leader</dt>
     <dd class="card-person"><a href="/users/<%= team.UserID %>"><%= team.FirstName %></a></dd>
-    <dt class="card-description">About</dt>
+  </div>
+  <dl class="with-left-card">
 		<dd class="card-description"><%= team.TeamDescription %></dd>
   </dl>
+  <hr class="spacer" />
 <% } else { %>
   <div class="message error">Team not found!</div>
 <% } %>

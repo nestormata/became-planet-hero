@@ -312,7 +312,6 @@ a,a:hover {
 }
 
 dl {
-  border-bottom: 1px solid #EEE;
   padding-bottom: 0.5em;
 }
 dt {
@@ -322,15 +321,54 @@ dd {
   font-family:courier,'new courier';
   color:#777;
 }
-dl .card-name {
+div.card-photo, div.card-left {
+  float: left;
+  margin-right: 0.5em;
+  padding-right: 0.5em;
+  display: block;
+  border-right: 1px solid #EEE;
+}
+div.card-left {
+  min-width: 10em;
+}
+div.card-photo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, .8);
+}
+.user-button img {
+  width: 25px;
+  height: 25px;
+  border-radius: 13px;
+  -webkit-border-radius: 13px;
+  -moz-border-radius: 13px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 0 2px rgba(0, 0, 0, .8);
+  vertical-align: middle;
+  margin-right: 0.5em;
+}
+dl.with-image, dl.with-left-card {
+  margin-left: 20px;
+  margin-top: 0;
+}
+dl.with-left-card {
+  padding-top: 0.5em;
+}
+dl .card-name, div .card-name {
   font-family:'Oswald',arial narrow,sans-serif;
   font-size: 150%;
 }
 dl .card-description {
 }
-dl dd.card-person {
+div dd.card-person {
   background-color:#777;
-  display: inline;
+  float: left;
   padding: .2em .6em .3em;
   font-size: 75%;
   font-weight: 700;
@@ -340,10 +378,9 @@ dl dd.card-person {
   white-space: nowrap;
   vertical-align: baseline;
   border-radius: .25em;
-  top: -0.5em;
-  position: relative;
+  margin-bottom: 1em;
 }
-dl dd.card-person a {
+div dd.card-person a {
   color: #fff;
 }
 dl dd.card-actions {
