@@ -350,7 +350,20 @@ dl dd.card-actions {
   font-size: 75%;
 }
 
-    
+.fa span {
+  line-height: 60px;
+  margin-left: 0.5em
+}
+.fa.spaced-icon {
+  margin-left: 1em;
+}
+.fa.spaced-icon span {
+  margin-left: 1.5em
+}
+li a.logout {
+  color: #AA5555;
+}
+
 .btn-twitter {background-color:#4099FF;color:#fff;}
 .btn-facebook {background-color:#3B5998;color:#fff;}
 .btn-google-plus {background-color:#d34836;color:#fff;}

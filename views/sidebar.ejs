@@ -4,23 +4,17 @@
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
-								<li><a class="gn-icon gn-icon-illustrator" href="/">Home</a></li>
+								<li><a class="fa fa-home spaced-icon" href="/"><span>Home</span></a></li>
 	              <% if (typeof user != 'undefined') { %>
-								  <li>
-                    <a href="/cave/"><span class="list_item">My Secret Cave</span></a>
-									  <ul class="gn-submenu">
-										  <li><a class="gn-icon gn-icon-illustrator" href="badges.php">Badges</a></li>
-									  </ul>
-								  </li>
+								  <li><a href="/cave/"><span class="list_item fa fa-key spaced-icon"><span>My Secret Cave</span></span></a></li>
+									<li><a class="fa fa-trophy spaced-icon" href="badges.php"><span>Badges</span></a></li>
                 <% } %>
-								<li><a class="gn-icon gn-icon-illustrator" href="/users/">Heroes</a></li>
-								<li><a class="gn-icon gn-icon-illustrator" href="/teams/">Hero Leagues</a></li>
-								<li><a class="gn-icon gn-icon-cog">Hall of Fame</a></li>
-                                <li><a class="gn-icon gn-icon-help" href="events.php">Events</a></li>
-								<li><a class="gn-icon gn-icon-help" href="calendar.php">Calendar</a></li>
-                                <li><a class="list_item">Help</a></li>
+								<li><a class="fa fa-user spaced-icon" href="/users/"><span>Heroes</span></a></li>
+								<li><a class="fa fa-users spaced-icon" href="/teams/"><span>Hero Leagues</span></a></li>
+								<li><a class="fa fa-ra spaced-icon"><span>Hall of Fame</span></a></li>
+                <li><a class="fa fa-calendar spaced-icon" href="events.php"><span>Events</span></a></li>
 	              <% if (typeof user != 'undefined') { %>
-								  <li><a class="gn-icon gn-icon-illustrator" href="/logout">Logout</a></li>
+								  <li><a class="fa fa-circle-o-notch logout spaced-icon" href="/logout"><span>Logout</span></a></li>
                 <% } %>
 							</ul>
 						</div><!-- /gn-scroller -->
@@ -29,9 +23,9 @@
         <li><a href="/"><img src="/img/leaflogo.png" style="width:22px;vertical-align:middle;margin:-4px 5px 0 auto;">Planet Hero</a></li>
 	      <% if (typeof user != 'undefined') { %>
 				  <li><a class="codrops-icon codrops-icon-drop" href="/account/"><span><%= user.FirstName %></span></a></li>
-					<li><a class="gn-icon gn-icon-illustrator" href="/logout">Logout</a></li>
+					<li><a class="fa fa-circle-o-notch logout" href="/logout"><span>Logout</span></a></li>
         <% } else { %>
-				  <li><a class="codrops-icon codrops-icon-drop" href="/auth/facebook/"><span>Facebook Login</span></a></li>
+				  <li><a class="fa fa-facebook-square" href="/auth/facebook/"><span>Facebook Login</span></a></li>
         <% } %>
 			</ul>
         <style> .list_item{margin-left:60px;}</style>
