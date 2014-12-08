@@ -1,0 +1,38 @@
+<% include head %>
+<% include top %>
+<div>
+<% if (hero) { %>
+  <div class="card-photo"><img src="<%= hero.Image %>" class="user-info-photo" /></div>
+  <dl class="with-image">
+    <dd class="card-name"><%= hero.FirstName %> <%= hero.LastName %></dd>
+      <% if (hero.Country != '--' || hero.City != '--') { %>
+        <dt class="card-detail">Location</dt>
+    		<dd class="card-detail">
+          <%= hero.City %><%= hero.City!='--' && hero.Country!='--'?',':'' %>
+          <%= hero.Country %>
+        </dd>
+      <% } %>
+  </dl>
+  <% var points = 0; %>
+	<% for(var i=0; i<earned.length; i++) {%>
+    <% if (earned[i].BadgeID) { %>
+      <div class="earned-item">
+        <dl>
+          <dt><%= earned[i].Name %></dt>
+          <dd><%= earned[i].Description %></dd>
+        </dl>
+      </div>
+    <% } %>
+    <% 
+    if (earned[i].Points) { 
+        points += earned[i].Points;
+    } 
+    %>
+  <% } %>
+  <dt>Points:</dt>
+  <dd><%= points %></dd>
+<% } else { %>
+  <div class="message error">You need to login!</div>
+<% } %>
+</div>
+<% include bottom %>

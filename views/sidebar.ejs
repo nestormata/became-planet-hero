@@ -6,7 +6,7 @@
 							<ul class="gn-menu">
 								<li><a class="fa fa-home spaced-icon" href="/"><span>Home</span></a></li>
 	              <% if (typeof user != 'undefined') { %>
-								  <li><a href="/cave/" class="fa fa-key spaced-icon"><span>My Secret Cave</span></span></a></li>
+								  <li><a href="/users/cave/" class="fa fa-key spaced-icon"><span>My Secret Cave</span></span></a></li>
 									<li><a class="fa fa-trophy spaced-icon" href="badges.php"><span>Badges</span></a></li>
                 <% } %>
 								<li><a class="fa fa-user spaced-icon" href="/users/"><span>Heroes</span></a></li>
@@ -22,7 +22,7 @@
 				</li>
         <li><a href="/"><img src="/img/leaflogo.png" style="width:22px;vertical-align:middle;margin:-4px 5px 0 auto;">Planet Hero</a></li>
 	      <% if (typeof user != 'undefined') { %>
-				  <li><a class="user-button" href="/account/"><img src="<%= user.Image %>" class="user-info-photo" /><span><%= user.FirstName %></span></a></li>
+				  <li><a class="user-button" href="/users/cave/"><img src="<%= user.Image %>" class="user-info-photo" /><span><%= user.FirstName %></span></a></li>
 					<li><a class="fa fa-circle-o-notch logout" href="/logout"><span class="only-for-big">Logout</span></a></li>
         <% } else { %>
 				  <li><a class="fa fa-facebook-square" href="/auth/facebook/"><span class="only-for-big">Facebook Login</span></a></li>

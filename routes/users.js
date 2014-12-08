@@ -29,6 +29,43 @@ router.get('/', function(req, res) {
   console.log(query.sql);
 });
 
+// Get information about current user
+router.get('/cave', function(req, res) {
+	var user = req.user;
+	// If user is not logged in then error
+	if (!user) {
+		return res.status(403).render('cave', { 
+			req: req,
+			user:req.user, 
+			hero: false,
+			entities: entities,
+			identifiers: page_identifiers.concat(['users-cave'])
+		});
+	}
+	// Find current user info
+	var entities = {
+		title: 'My Secret Cave',
+		home: '/users/cave',
+		can_add: false
+	};
+  var query = connection.query('SELECT Earned.Points, Badges.* FROM Earned LEFT OUTER JOIN Badges ON Earned.BadgeID = Badges.BadgeID WHERE UserID = ?', [user.UserID],
+    function(err, rows, fields) {
+        if (err) {throw err;}
+				var earned = rows;
+				// TODO: get the list of earned info here
+        res.render('cave', { 
+					req: req,
+					user: req.user, 
+					hero: user,
+					earned: earned,
+					entities: entities,
+					identifiers: page_identifiers.concat(['users-cave'])
+				});
+  });
+	console.log(query.sql);
+  console.log("Requested userid - " + user.UserID);
+});
+
 // Get information about user by id
 router.get('/:id', function(req, res) {
   var query = connection.query('SELECT * from Users WHERE UserID=?', [req.params.id],
