@@ -29,19 +29,20 @@ router.get('/:id', function(req, res) {
 });
 
 // Complete challenge
-router.post('/complete', function(req, res) {
+router.get('/complete/:id', function(req, res) {
   console.log(req.body);
-  var query = connection.query('INSERT INTO UserChallenges(UserID, ChallengeID) VALUES (?,?)', [req.param('uid'), req.param('cid')],
+  var query = connection.query('INSERT INTO UserChallenges(UserID, ChallengeID) VALUES (?,?)', [req.user.UserID, req.params.id],
     function(err, result) {
       if (err) {console.log(err); res.send('Please provide correct details'); return;}
       console.log(result);
-      var query2 = connection.query('SELECT Points from Challenges WHERE ChallengeID=?', [req.param('cid')],
+      var query2 = connection.query('SELECT * from Challenges WHERE ChallengeID=?', [req.params.id],
       function(err, rows, fields) {
         if (err || !rows.length) {return res.status(404).end();}
-        var query3 = connection.query('INSERT INTO Earned(UserID, Points) VALUES (?,?)', [req.param('uid'), rows[0].Points],
+        var query3 = connection.query('INSERT INTO Earned(UserID, Points, BadgeID) VALUES (?,?,?)', [req.user.UserID, rows[0].Points, rows[0].BadgeID],
         function(err, result) {
           if (err) {res.send('Please provide correct details'); return;}
-          res.send('OK');
+					req.session.message = 'The challenge has being achieved!';
+        	res.redirect('/users/cave');
           console.log(result);
         });
       });

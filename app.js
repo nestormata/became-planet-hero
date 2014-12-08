@@ -69,7 +69,7 @@ passport.use(new FBStrategy({
 					profile.photos[0].value,
 					profile.id
 				], function(err, result){
-					if (err) {
+					if (err || result.affectedRows == 0) {
 						var insert = connection.query(
 							'INSERT INTO Users (LastName, FirstName, Email, Country, City, FBID, Image) VALUES (?, ?, ?, ?, ?, ?, ?)', 
 							[
@@ -86,10 +86,12 @@ passport.use(new FBStrategy({
 								console.log(result);
 			 		 	});
 						console.log(insert.sql);
+      			return done(null, profile);
+					} else {
+      			return done(null, profile);
 					}
 				});
 			console.log(update.sql);
-      return done(null, profile);
     });
   }
 ));

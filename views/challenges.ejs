@@ -6,11 +6,11 @@
 		<% for(var i=0; i<rows.length; i++) {%>
       <div class="card-left">
 		    <dd class="card-name"><%= rows[i].Name %></dd>
-        <dd class="card-person">Type: <%= rows[i].Type %> - <%= rows[i].Points %> points</dd>
+        <dd class="card-person"><%= rows[i].Points %> points</dd>
       </div>
       <dl class="with-left-card">
     		<dd class="card-description"><%= rows[i].Description %></dd>
-    		<dd class="card-actions"><a href="/challenges/<%= rows[i].ChallengeID %>">See more &gt;&gt;</a></dd>
+    		<dd class="card-actions"><a href="/challenges/complete/<%= rows[i].ChallengeID %>">Done this challenge &gt;&gt;</a></dd>
       </dl>
       <hr class="spacer" />
 		<% } %>
