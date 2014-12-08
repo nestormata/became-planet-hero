@@ -1,0 +1,21 @@
+<% include head %>
+		<script src="/javascripts/entities.js"></script>
+<% include top %>
+<div>
+<% if (rows) { %>
+		<% for(var i=0; i<rows.length; i++) {%>
+      <div class="card-left">
+		    <dd class="card-name"><%= rows[i].Name %></dd>
+        <dd class="card-person">Type: <%= rows[i].Type %> - <%= rows[i].Points %> points</dd>
+      </div>
+      <dl class="with-left-card">
+    		<dd class="card-description"><%= rows[i].Description %></dd>
+    		<dd class="card-actions"><a href="/challenges/<%= rows[i].ChallengeID %>">See more &gt;&gt;</a></dd>
+      </dl>
+      <hr class="spacer" />
+		<% } %>
+<% } else { %>
+  <div class="message">No challenges found!</div>
+<% } %>
+</div>
+<% include bottom %>
