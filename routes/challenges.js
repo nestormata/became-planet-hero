@@ -27,7 +27,7 @@ router.get('/:id', function(req, res) {
 // Create challenge
 router.post('/create', function(req, res) {
   console.log(req.body);
-  var query = connection.query('INSERT INTO Challenges(Type, Name, Description) VALUES (?,?,?)', [req.param('type'), req.param('name'), req.param('desc')],
+  var query = connection.query('INSERT INTO Challenges(Type, Name, Description, Points) VALUES (?,?,?,?)', [req.param('type'), req.param('name'), req.param('desc'), req.param('points')],
     function(err, result) {
         if (err) {res.send('Please provide details'); throw err;}
         res.send('OK');

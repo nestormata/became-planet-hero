@@ -1,7 +1,7 @@
 var express = require('express');
-var passport = require('passport');
-var router = express.Router();
-var util = require('util');
+    passport = require('passport');
+    router = express.Router();
+    util = require('util');
 
 /* GET home page. */
 router.get('/', function(req, res) {

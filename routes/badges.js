@@ -27,7 +27,7 @@ router.get('/:id', function(req, res) {
 // Create badge
 router.post('/create', function(req, res) {
   console.log(req.body);
-  var query = connection.query('INSERT INTO Badges(Name, Description, Identifier) VALUES (?,?,?)', [req.param('name'), req.param('desc'), req.param('identifier')],
+  var query = connection.query('INSERT INTO Badges(Name, Description, Identifier, Points) VALUES (?,?,?,?)', [req.param('name'), req.param('desc'), req.param('identifier'), req.param('points')],
     function(err, result) {
         if (err) {res.send('Please provide details'); throw err;}
         res.send('OK');

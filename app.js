@@ -16,6 +16,7 @@ var express         = require('express'),
     events          = require('./routes/events'),
     challenges      = require('./routes/challenges'),
     badges          = require('./routes/badges'),
+    points          = require('./routes/points'),
     app             = express(),
     config          = require('./configuration/config.' + app.get('env')),
     connection      = require('./helpers/mysql.js');
@@ -99,6 +100,7 @@ app.use('/teams', teams);
 app.use('/events', events);
 app.use('/challenges', challenges);
 app.use('/badges', badges);
+app.use('/points', points);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
