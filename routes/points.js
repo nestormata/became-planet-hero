@@ -40,12 +40,21 @@ router.get('/badge/:id', function(req, res) {
 // Accepts negative values to penalize users
 router.post('/grant', function(req, res) {
   console.log(req.body);
-  var query = connection.query('INSERT INTO Earned(UserID, BadgeID, Points) VALUES (?,?,?)', [req.param('uid'), req.param('bid'), req.param('points')],
-    function(err, result) {
-        if (err) {res.send('Please provide details'); throw err;}
-        res.send('OK');
-        console.log(result);
-  });
+  if (req.param('bid') != 'undefined') {
+    var query = connection.query('INSERT INTO Earned(UserID, BadgeID, Points) VALUES (?,?,?)', [req.param('uid'), req.param('bid'), req.param('points')],
+      function(err, result) {
+          if (err) {res.send('Please provide details'); throw err;}
+          res.send('OK');
+          console.log(result);
+    });
+  } else {
+    var query = connection.query('INSERT INTO Earned(UserID, Points) VALUES (?,?,?)', [req.param('uid'), req.param('points')],
+      function(err, result) {
+          if (err) {res.send('Please provide details'); throw err;}
+          res.send('OK');
+          console.log(result);
+    });
+  }
   console.log(query.sql);
 });
 

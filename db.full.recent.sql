@@ -79,7 +79,7 @@ CREATE TABLE Earned (
 	Points integer,
 	Time timestamp default now(),
 	foreign key (UserID) references Users(UserID),
-	--foreign key (BadgeID) references Badges(BadgeID), -- TBD 
+	#foreign key (BadgeID) references Badges(BadgeID), -- TBD 
 	INDEX (UserID)
 );
 
