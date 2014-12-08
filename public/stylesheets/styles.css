@@ -359,7 +359,7 @@ dl dd.card-actions {
   font-size: 75%;
 }
 .fa.spaced-icon {
-  padding-left: 1em;
+  padding-left: 0.5em;
 }
 .fa.spaced-icon span {
   margin-left: 1.5em
