@@ -350,9 +350,13 @@ dl dd.card-actions {
   font-size: 75%;
 }
 
+.fa {
+  font-size: 150%;
+}
 .fa span {
   line-height: 60px;
-  margin-left: 0.5em
+  margin-left: 0.5em;
+  font-size: 75%;
 }
 .fa.spaced-icon {
   padding-left: 1em;
